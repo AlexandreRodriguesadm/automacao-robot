@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20230206 17:47:11.899" rpa="false" schemaversion="3">
+<suite id="s1" name="Teste" source="C:\Users\Alexandre Rodrigues\Downloads\Estudos Automação de testes\RobotBDD\automacao_web\testes\teste.robot">
+<test id="s1-t1" name="Test Case 01: Tentativa de Login - com Sucesso" line="13">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:12.439" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:12.438" endtime="20230206 17:47:13.495"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:13.495" endtime="20230206 17:47:13.603"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:12.438" endtime="20230206 17:47:13.603"/>
+</kw>
+<kw name="Dado que esteja na tela de login" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:13.604" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:13.604" endtime="20230206 17:47:15.082"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:15.084" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:15.083" endtime="20230206 17:47:15.350"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:13.603" endtime="20230206 17:47:15.350"/>
+</kw>
+<kw name="Quando inserir dados validos" library="keywords">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:15.351" endtime="20230206 17:47:15.601"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<arg>${emailValido}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:15.601" level="INFO">Typing text 'Testesautomatizados123@outlook.com' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:47:15.601" endtime="20230206 17:47:15.693"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continuar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:15.694" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:47:15.694" endtime="20230206 17:47:16.521"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirSenhaValida}</arg>
+<arg>${senhaValida}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:16.522" level="INFO">Typing text '_q5eARxkWGt9n-3' into text field 'ap_password'.</msg>
+<status status="PASS" starttime="20230206 17:47:16.521" endtime="20230206 17:47:16.580"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${botaoFazerLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:16.581" level="INFO">Clicking element 'auth-signin-button'.</msg>
+<status status="PASS" starttime="20230206 17:47:16.580" endtime="20230206 17:47:16.626"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:15.351" endtime="20230206 17:47:16.626"/>
+</kw>
+<kw name="Então devo validar se realmente estou logado" library="keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${validacaoLogin}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:16.626" endtime="20230206 17:47:18.300"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:16.626" endtime="20230206 17:47:18.300"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:47:18.301" endtime="20230206 17:47:18.388"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:47:18.388" endtime="20230206 17:47:20.508"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:18.300" endtime="20230206 17:47:20.508"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:12.437" endtime="20230206 17:47:20.508"/>
+</test>
+<test id="s1-t2" name="Test Case 02: Tentativa de Login com E-mail inválido - sem Sucesso" line="18">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:20.510" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:20.510" endtime="20230206 17:47:21.509"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:21.509" endtime="20230206 17:47:21.617"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:20.509" endtime="20230206 17:47:21.617"/>
+</kw>
+<kw name="Dado que esteja na tela de login" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:21.618" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:21.617" endtime="20230206 17:47:23.230"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:23.231" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:23.230" endtime="20230206 17:47:23.666"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:21.617" endtime="20230206 17:47:23.666"/>
+</kw>
+<kw name="Quando inserir dados de E-mail inválidos" library="keywords">
+<kw name="Email" library="FakerLibrary">
+<var>${emailFake}</var>
+<msg timestamp="20230206 17:47:23.667" level="INFO">${emailFake} = igorbarros@example.org</msg>
+<status status="PASS" starttime="20230206 17:47:23.667" endtime="20230206 17:47:23.667"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:23.667" endtime="20230206 17:47:23.887"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<arg>${emailFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:23.888" level="INFO">Typing text 'igorbarros@example.org' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:47:23.887" endtime="20230206 17:47:23.954"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continuar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:23.955" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:47:23.954" endtime="20230206 17:47:24.363"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:23.667" endtime="20230206 17:47:24.363"/>
+</kw>
+<kw name="Então devo obter a mensagem de erro" library="keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${erroEmailInvalido}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:24.364" endtime="20230206 17:47:24.392"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:24.363" endtime="20230206 17:47:24.392"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:47:24.393" endtime="20230206 17:47:24.432"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:47:24.432" endtime="20230206 17:47:26.540"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:24.393" endtime="20230206 17:47:26.540"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:20.509" endtime="20230206 17:47:26.540"/>
+</test>
+<test id="s1-t3" name="Test Case 03: Tentativa de Login com Senha inválida - sem Sucesso" line="23">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:26.542" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:26.542" endtime="20230206 17:47:27.616"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:27.617" endtime="20230206 17:47:27.726"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:26.541" endtime="20230206 17:47:27.726"/>
+</kw>
+<kw name="Dado que esteja na tela de login" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:27.727" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:27.727" endtime="20230206 17:47:29.132"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:29.133" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:29.133" endtime="20230206 17:47:29.454"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:27.727" endtime="20230206 17:47:29.454"/>
+</kw>
+<kw name="E Insiro E-mail Válido" library="keywords">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:29.455" endtime="20230206 17:47:29.684"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailValido}</arg>
+<arg>${emailValido}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:29.684" level="INFO">Typing text 'Testesautomatizados123@outlook.com' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:47:29.684" endtime="20230206 17:47:29.772"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continuar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:29.773" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:47:29.772" endtime="20230206 17:47:30.375"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:29.454" endtime="20230206 17:47:30.375"/>
+</kw>
+<kw name="Quando inserir dados de Senha inválidos" library="keywords">
+<kw name="Password" library="FakerLibrary">
+<var>${passwordFake}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230206 17:47:30.376" level="INFO">${passwordFake} = !YS2EgM4TQ</msg>
+<status status="PASS" starttime="20230206 17:47:30.376" endtime="20230206 17:47:30.376"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirSenhaValida}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:30.376" level="INFO">Typing text '!YS2EgM4TQ' into text field 'ap_password'.</msg>
+<status status="PASS" starttime="20230206 17:47:30.376" endtime="20230206 17:47:30.433"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${botaoFazerLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:30.433" level="INFO">Clicking element 'auth-signin-button'.</msg>
+<status status="PASS" starttime="20230206 17:47:30.433" endtime="20230206 17:47:30.480"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:30.375" endtime="20230206 17:47:30.480"/>
+</kw>
+<kw name="Então devo obter a mensagem senha incorreta" library="keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${erroSenhaIncorreta}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:30.481" endtime="20230206 17:47:31.548"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:30.480" endtime="20230206 17:47:31.548"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:47:31.549" endtime="20230206 17:47:31.582"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:47:31.582" endtime="20230206 17:47:33.721"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:31.549" endtime="20230206 17:47:33.721"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:26.541" endtime="20230206 17:47:33.722"/>
+</test>
+<test id="s1-t4" name="Test Case 04: Tentativa de Cadastro com dados genéricos - com Sucesso" line="29">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:33.724" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:33.723" endtime="20230206 17:47:34.748"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:34.749" endtime="20230206 17:47:34.858"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:33.723" endtime="20230206 17:47:34.858"/>
+</kw>
+<kw name="Dado que eu esteja na tela de cadastro" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:34.859" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:34.859" endtime="20230206 17:47:36.507"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:36.508" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:36.507" endtime="20230206 17:47:37.031"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:37.032" endtime="20230206 17:47:37.245"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:37.246" level="INFO">Clicking element 'createAccountSubmit'.</msg>
+<status status="PASS" starttime="20230206 17:47:37.246" endtime="20230206 17:47:37.723"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:34.859" endtime="20230206 17:47:37.723"/>
+</kw>
+<kw name="Quando inserir os dados" library="keywords">
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFake}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230206 17:47:37.724" level="INFO">${nomeFake} = Melissa Viana</msg>
+<status status="PASS" starttime="20230206 17:47:37.724" endtime="20230206 17:47:37.724"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${emailFake}</var>
+<msg timestamp="20230206 17:47:37.725" level="INFO">${emailFake} = vieiracecilia@example.net</msg>
+<status status="PASS" starttime="20230206 17:47:37.724" endtime="20230206 17:47:37.725"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${passwordFake}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230206 17:47:37.725" level="INFO">${passwordFake} = Wn6cCQy)m_</msg>
+<status status="PASS" starttime="20230206 17:47:37.725" endtime="20230206 17:47:37.725"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:37.725" endtime="20230206 17:47:37.743"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<arg>${nomeFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:37.744" level="INFO">Typing text 'Melissa Viana' into text field 'ap_customer_name'.</msg>
+<status status="PASS" starttime="20230206 17:47:37.743" endtime="20230206 17:47:37.795"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailFake}</arg>
+<arg>${emailFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:37.796" level="INFO">Typing text 'vieiracecilia@example.net' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:47:37.795" endtime="20230206 17:47:37.882"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirSenhaFake}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:37.883" level="INFO">Typing text 'Wn6cCQy)m_' into text field 'ap_password'.</msg>
+<status status="PASS" starttime="20230206 17:47:37.882" endtime="20230206 17:47:37.960"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${confirmarSenhaFake}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:37.961" level="INFO">Typing text 'Wn6cCQy)m_' into text field 'ap_password_check'.</msg>
+<status status="PASS" starttime="20230206 17:47:37.960" endtime="20230206 17:47:38.035"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${confirmarCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:38.035" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:47:38.035" endtime="20230206 17:47:38.639"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:37.723" endtime="20230206 17:47:38.639"/>
+</kw>
+<kw name="Então devo validar se fui cadastrado com Sucesso" library="keywords">
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230206 17:47:48.641" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230206 17:47:38.640" endtime="20230206 17:47:48.641"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>text=${validarCadastro}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230206 17:47:48.674" level="INFO">Current page contains text 'Resolva este quebra-cabeça para proteger sua conta'.</msg>
+<status status="PASS" starttime="20230206 17:47:48.641" endtime="20230206 17:47:48.674"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:38.639" endtime="20230206 17:47:48.674"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:47:48.675" endtime="20230206 17:47:48.706"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:47:48.707" endtime="20230206 17:47:50.855"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:48.675" endtime="20230206 17:47:50.855"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:33.723" endtime="20230206 17:47:50.855"/>
+</test>
+<test id="s1-t5" name="Test Case 05: Tentativa de Cadastro com E-mail inválido - sem Sucesso" line="34">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:50.858" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:50.857" endtime="20230206 17:47:51.883"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:51.883" endtime="20230206 17:47:51.992"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:50.857" endtime="20230206 17:47:51.992"/>
+</kw>
+<kw name="Dado que eu esteja na tela de cadastro" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:51.993" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:51.993" endtime="20230206 17:47:53.411"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:53.412" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:53.411" endtime="20230206 17:47:53.672"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:53.672" endtime="20230206 17:47:53.957"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:53.957" level="INFO">Clicking element 'createAccountSubmit'.</msg>
+<status status="PASS" starttime="20230206 17:47:53.957" endtime="20230206 17:47:54.152"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:51.993" endtime="20230206 17:47:54.152"/>
+</kw>
+<kw name="Quando inserir dados de E-mail inválido (Cadastro)" library="keywords">
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFake}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230206 17:47:54.153" level="INFO">${nomeFake} = Pedro Ribeiro</msg>
+<status status="PASS" starttime="20230206 17:47:54.153" endtime="20230206 17:47:54.153"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${passwordFake}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230206 17:47:54.153" level="INFO">${passwordFake} = *Z597SZm11</msg>
+<status status="PASS" starttime="20230206 17:47:54.153" endtime="20230206 17:47:54.153"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:54.153" endtime="20230206 17:47:54.584"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<arg>${nomeFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:54.584" level="INFO">Typing text 'Pedro Ribeiro' into text field 'ap_customer_name'.</msg>
+<status status="PASS" starttime="20230206 17:47:54.584" endtime="20230206 17:47:54.638"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailFake}</arg>
+<arg>${emailInvalido}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:54.639" level="INFO">Typing text 'sidjasuiodahsdaosudhasdhu.com' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:47:54.638" endtime="20230206 17:47:54.721"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirSenhaFake}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:54.722" level="INFO">Typing text '*Z597SZm11' into text field 'ap_password'.</msg>
+<status status="PASS" starttime="20230206 17:47:54.721" endtime="20230206 17:47:54.796"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${confirmarSenhaFake}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:54.796" level="INFO">Typing text '*Z597SZm11' into text field 'ap_password_check'.</msg>
+<status status="PASS" starttime="20230206 17:47:54.796" endtime="20230206 17:47:54.864"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${confirmarCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:54.865" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:47:54.864" endtime="20230206 17:47:54.908"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:54.152" endtime="20230206 17:47:54.908"/>
+</kw>
+<kw name="Então devo validar a mensagem que diz E-mail está inválido" library="keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${validacaoEmailInvalido}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:47:54.909" endtime="20230206 17:47:54.928"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:54.908" endtime="20230206 17:47:54.929"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:47:54.930" endtime="20230206 17:47:54.965"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:47:54.965" endtime="20230206 17:47:57.094"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:54.929" endtime="20230206 17:47:57.094"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:50.857" endtime="20230206 17:47:57.094"/>
+</test>
+<test id="s1-t6" name="Test Case 06: Tentativa de Cadastro com Senhas divergentes - sem Sucesso" line="39">
+<kw name="Abrir navegador" library="recursos_comuns" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230206 17:47:57.097" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230206 17:47:57.096" endtime="20230206 17:47:58.121"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230206 17:47:58.121" endtime="20230206 17:47:58.228"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:57.096" endtime="20230206 17:47:58.228"/>
+</kw>
+<kw name="Dado que eu esteja na tela de cadastro" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${homeInicio}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230206 17:47:58.229" level="INFO">Opening url 'https://www.amazon.com.br/ref=nav_bb_logo'</msg>
+<status status="PASS" starttime="20230206 17:47:58.229" endtime="20230206 17:47:59.655"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:47:59.656" level="INFO">Clicking element 'nav-link-accountList-nav-line-1'.</msg>
+<status status="PASS" starttime="20230206 17:47:59.655" endtime="20230206 17:47:59.939"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230206 17:47:59.940" endtime="20230206 17:48:00.178"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${paginaCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.179" level="INFO">Clicking element 'createAccountSubmit'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.178" endtime="20230206 17:48:00.376"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:58.229" endtime="20230206 17:48:00.377"/>
+</kw>
+<kw name="Quando inserir o dados de senhas divergentes" library="keywords">
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFake}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230206 17:48:00.378" level="INFO">${nomeFake} = Sra. Clara Cavalcanti</msg>
+<status status="PASS" starttime="20230206 17:48:00.378" endtime="20230206 17:48:00.378"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${emailFake}</var>
+<msg timestamp="20230206 17:48:00.379" level="INFO">${emailFake} = caldeirathales@example.net</msg>
+<status status="PASS" starttime="20230206 17:48:00.378" endtime="20230206 17:48:00.379"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${passwordFake}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230206 17:48:00.379" level="INFO">${passwordFake} = t0$W2VvpY)</msg>
+<status status="PASS" starttime="20230206 17:48:00.379" endtime="20230206 17:48:00.379"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:48:00.379" endtime="20230206 17:48:00.620"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirNomeSobrenome}</arg>
+<arg>${nomeFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.621" level="INFO">Typing text 'Sra. Clara Cavalcanti' into text field 'ap_customer_name'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.620" endtime="20230206 17:48:00.692"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirEmailFake}</arg>
+<arg>${emailFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.693" level="INFO">Typing text 'caldeirathales@example.net' into text field 'ap_email'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.693" endtime="20230206 17:48:00.825"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inserirSenhaFake}</arg>
+<arg>${passwordFake}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.825" level="INFO">Typing text 't0$W2VvpY)' into text field 'ap_password'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.825" endtime="20230206 17:48:00.898"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${confirmarSenhaFake}</arg>
+<arg>${senhaDivergente}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.899" level="INFO">Typing text 'dasfgdfh56dcdfg' into text field 'ap_password_check'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.898" endtime="20230206 17:48:00.969"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${confirmarCadastro}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230206 17:48:00.969" level="INFO">Clicking element 'continue'.</msg>
+<status status="PASS" starttime="20230206 17:48:00.969" endtime="20230206 17:48:01.018"/>
+</kw>
+<status status="PASS" starttime="20230206 17:48:00.377" endtime="20230206 17:48:01.018"/>
+</kw>
+<kw name="Então devo validar a mensagem que diz senhas não iguais" library="keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${erroSenhaDivergente}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230206 17:48:01.019" endtime="20230206 17:48:01.039"/>
+</kw>
+<status status="PASS" starttime="20230206 17:48:01.018" endtime="20230206 17:48:01.039"/>
+</kw>
+<kw name="Fechar navegador" library="recursos_comuns" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20230206 17:48:01.040" endtime="20230206 17:48:01.072"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230206 17:48:01.073" endtime="20230206 17:48:03.197"/>
+</kw>
+<status status="PASS" starttime="20230206 17:48:01.039" endtime="20230206 17:48:03.197"/>
+</kw>
+<status status="PASS" starttime="20230206 17:47:57.096" endtime="20230206 17:48:03.197"/>
+</test>
+<status status="PASS" starttime="20230206 17:47:11.900" endtime="20230206 17:48:03.199"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Teste">Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
