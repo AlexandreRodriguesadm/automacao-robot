@@ -8,91 +8,91 @@ Library    FakerLibrary     locale=pt_BR
 *** Keywords ***
 # Algumas keywords ja prontas basta preencher as variaveis e executar os casos de teste
 Dado que esteja na tela de login
-    Go To           ${home_inicio}
-    Click Element   ${pagina_login}
+    Go To           ${homeInicio}
+    Click Element   ${paginaLogin}
 
 
 Quando inserir dados validos
-    Wait until page contains element     ${inserir_email_valido}
-    Input Text          ${inserir_email_valido}     ${email_valido}
-    Click Element       ${Continuar}
-    Input Text          ${inserir_senha_valida}     ${senha_valida}
-    Click Element       ${botão_fazerlogin}
+    Wait until page contains element     ${inserirEmailValido}
+    Input Text          ${inserirEmailValido}     ${emailValido}
+    Click Element       ${continuar}
+    Input Text          ${inserirSenhaValida}     ${senhaValida}
+    Click Element       ${botaoFazerLogin}
 
 Então devo validar se realmente estou logado
-    Wait Until Element Is Visible   ${validação_login}
+    Wait Until Element Is Visible   ${validacaoLogin}
 
 Quando inserir dados de E-mail inválidos
-    ${EMAILFAKE}                FakerLibrary.Email
+    ${emailFake}                FakerLibrary.Email
 
-    Wait until page contains element     ${inserir_email_valido}
-    Input Text      ${inserir_email_valido}     ${EMAILFAKE}
-    Click Element   ${Continuar}
+    Wait until page contains element     ${inserirEmailValido}
+    Input Text      ${inserirEmailValido}     ${emailFake}
+    Click Element   ${continuar}
 
 Então devo obter a mensagem de erro
-    Wait Until Element Is Visible       ${erro_email_invalido}
+    Wait Until Element Is Visible       ${erroEmailInvalido}
 
 E Insiro E-mail Válido
-    Wait until page contains element     ${inserir_email_valido}
-    Input Text      ${inserir_email_valido}     ${email_valido}
-    Click Element   ${Continuar}
+    Wait until page contains element     ${inserirEmailValido}
+    Input Text      ${inserirEmailValido}     ${emailValido}
+    Click Element   ${continuar}
 
 Quando inserir dados de Senha inválidos
-    ${PASSWORDFAKE}             FakerLibrary.Password
+    ${passwordFake}             FakerLibrary.Password
 
-    Input Text      ${inserir_senha_valida}     ${PASSWORDFAKE}
-    Click Element   ${botão_fazerlogin}
+    Input Text      ${inserirSenhaValida}     ${passwordFake}
+    Click Element   ${botaoFazerLogin}
 
 Então devo obter a mensagem senha incorreta
-    Wait Until Element Is Visible   ${erro_senha_incorreta}
+    Wait Until Element Is Visible   ${erroSenhaIncorreta}
 
 Dado que eu esteja na tela de cadastro
-    Go To                                   ${home_inicio}
-    Click Element                           ${pagina_login}
-    Wait until page contains element        ${pagina_cadastro}
-    Click Element                           ${pagina_cadastro}
+    Go To                                   ${homeInicio}
+    Click Element                           ${paginaLogin}
+    Wait until page contains element        ${paginaCadastro}
+    Click Element                           ${paginaCadastro}
 
 Quando inserir os dados
-    ${NOMEFAKE}         FakerLibrary.Name
-    ${EMAILFAKE}        FakerLibrary.Email
-    ${PASSWORDFAKE}     FakerLibrary.Password
-    Wait Until Element Is Visible               ${inserir_nome_sobrenome}
-    Input Text      ${inserir_nome_sobrenome}   ${NOMEFAKE}
-    Input Text      ${inserir_email_fake}       ${EMAILFAKE}
-    Input Text      ${inserir_senha_fake}       ${PASSWORDFAKE}
-    Input Text      ${confirmar_senha_fake}     ${PASSWORDFAKE}
-    Click Element   ${confirmar_cadastro}
+    ${nomeFake}         FakerLibrary.Name
+    ${emailFake}        FakerLibrary.Email
+    ${passwordFake}     FakerLibrary.Password
+    Wait Until Element Is Visible               ${inserirNomeSobrenome}
+    Input Text      ${inserirNomeSobrenome}   ${nomeFake}
+    Input Text      ${inserirEmailFake}       ${emailFake}
+    Input Text      ${inserirSenhaFake}       ${passwordFake}
+    Input Text      ${confirmarSenhaFake}     ${passwordFake}
+    Click Element   ${confirmarCadastro}
 
 Então devo validar se fui cadastrado com Sucesso
     sleep   10
-    Page Should contain    text=${validar_cadastro}
+    Page Should contain    text=${validarCadastro}
 
 Quando inserir dados de E-mail inválido (Cadastro)
-    ${NOMEFAKE}         FakerLibrary.Name
-    ${PASSWORDFAKE}     FakerLibrary.Password
-    Wait Until Element Is Visible               ${inserir_nome_sobrenome}
-    Input Text      ${inserir_nome_sobrenome}   ${NOMEFAKE}
-    Input Text      ${inserir_email_fake}       ${EMAIL_INVALIDO}
-    Input Text      ${inserir_senha_fake}       ${PASSWORDFAKE}
-    Input Text      ${confirmar_senha_fake}     ${PASSWORDFAKE}
-    Click Element   ${confirmar_cadastro}
+    ${nomeFake}         FakerLibrary.Name
+    ${passwordFake}     FakerLibrary.Password
+    Wait Until Element Is Visible               ${inserirNomeSobrenome}
+    Input Text      ${inserirNomeSobrenome}   ${nomeFake}
+    Input Text      ${inserirEmailFake}       ${emailInvalido}
+    Input Text      ${inserirSenhaFake}       ${passwordFake}
+    Input Text      ${confirmarSenhaFake}     ${passwordFake}
+    Click Element   ${confirmarCadastro}
 
 Então devo validar a mensagem que diz E-mail está inválido
-    Wait Until Element Is Visible   ${validação_email_inválido}
+    Wait Until Element Is Visible   ${validacaoEmailInvalido}
 
 Quando inserir o dados de senhas divergentes
-    ${NOMEFAKE}         FakerLibrary.Name
-    ${EMAILFAKE}        FakerLibrary.Email
-    ${PASSWORDFAKE}     FakerLibrary.Password
-    Wait Until Element Is Visible               ${inserir_nome_sobrenome}
-    Input Text      ${inserir_nome_sobrenome}   ${NOMEFAKE}
-    Input Text      ${inserir_email_fake}       ${EMAILFAKE}
-    Input Text      ${inserir_senha_fake}       ${PASSWORDFAKE}
-    Input Text      ${confirmar_senha_fake}     ${SENHADIVERGENTE}
-    Click Element   ${confirmar_cadastro}
+    ${nomeFake}         FakerLibrary.Name
+    ${emailFake}        FakerLibrary.Email
+    ${passwordFake}     FakerLibrary.Password
+    Wait Until Element Is Visible               ${inserirNomeSobrenome}
+    Input Text      ${inserirNomeSobrenome}   ${nomeFake}
+    Input Text      ${inserirEmailFake}       ${emailFake}
+    Input Text      ${inserirSenhaFake}       ${passwordFake}
+    Input Text      ${confirmarSenhaFake}     ${senhaDivergente}
+    Click Element   ${confirmarCadastro}
 
 Então devo validar a mensagem que diz senhas não iguais
-    Wait Until Element is Visible   ${ERRO_SENHA_DIVERGENTE}
+    Wait Until Element is Visible   ${erroSenhaDivergente}
 
 
 
